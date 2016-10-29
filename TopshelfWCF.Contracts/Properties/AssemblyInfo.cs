@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("TopshelfWCF")]
+[assembly: AssemblyTitle("TopshelfWCF.Contracts")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TopshelfWCF")]
+[assembly: AssemblyProduct("TopshelfWCF.Contracts")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
-[assembly: Guid("bf24f7fb-f234-4555-a3b1-c43ece7716f5")]
+[assembly: Guid("543256a3-e208-42a4-a4a9-6fa61afb2c35")]
 
 // Version information for an assembly consists of the following four values:
 //
