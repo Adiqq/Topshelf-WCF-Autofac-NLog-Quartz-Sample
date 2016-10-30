@@ -60,8 +60,8 @@ namespace TopshelfWCF.Gateway {
         private static void RegisterWcfServices(ContainerBuilder builder) {
             builder
                 .Register(c => new ChannelFactory<IHelloWorldService>(
-                    new NetTcpBinding(),
-                    new EndpointAddress("net.tcp://localhost:9090/HelloWorldService")))
+                    new BasicHttpBinding(),
+                    new EndpointAddress("http://localhost:8080/HelloWorldService")))
                 .SingleInstance();
             builder
                 .Register(c => c.Resolve<ChannelFactory<IHelloWorldService>>().CreateChannel())
