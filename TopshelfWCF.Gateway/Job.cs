@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 using NLog;
 using Quartz;
 using TopshelfWCF.Contracts.Services;
@@ -20,6 +21,9 @@ namespace TopshelfWCF.Gateway {
             }
             catch (EndpointNotFoundException e) {
                 logger.LogException(LogLevel.Error, "Server is not responding", e);
+            }
+            catch (Exception e) {
+                logger.LogException(LogLevel.Fatal, e.Message, e);
             }
         }
     }

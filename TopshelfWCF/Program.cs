@@ -14,6 +14,7 @@ namespace TopshelfWCF {
             var container = builder.Build();
 
             HostFactory.Run(c => {
+                c.UseLinuxIfAvailable();
                 c.UseAutofacContainer(container);
                 c.Service<HostService>(s => {
                     s.ConstructUsingAutofacContainer();

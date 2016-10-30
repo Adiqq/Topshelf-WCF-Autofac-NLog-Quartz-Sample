@@ -1,5 +1,4 @@
-﻿using System;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 using Autofac;
 using Autofac.Extras.NLog;
 using Autofac.Integration.Wcf;
