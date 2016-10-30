@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Specialized;
-using System.Net.Security;
+﻿using System.Collections.Specialized;
 using System.ServiceModel;
-using System.ServiceModel.Channels;
 using Autofac;
 using Autofac.Extras.NLog;
 using Autofac.Extras.Quartz;
@@ -62,18 +59,13 @@ namespace TopshelfWCF.Gateway {
         }
 
         private static void RegisterWcfServices(ContainerBuilder builder) {
-            var binding = new NetTcpBinding(SecurityMode.Transport);
-            var endpoint = new EndpointAddress(new Uri("net.tcp://localhost:9091/HelloWorldService"));
             builder
                 .Register(c => new ChannelFactory<IHelloWorldService>(
-                    binding,
-                    endpoint))
+                    new BasicHttpBinding(),
+                    new EndpointAddress("http://localhost:8080/HelloWorldService")))
                 .SingleInstance();
             builder
-                .Register(c => {
-                    var factory = c.Resolve<ChannelFactory<IHelloWorldService>>();
-                    return factory.CreateChannel();
-                })
+                .Register(c => c.Resolve<ChannelFactory<IHelloWorldService>>().CreateChannel())
                 .As<IHelloWorldService>()
                 .UseWcfSafeRelease();
         }
